@@ -11,6 +11,7 @@ S = "${WORKDIR}/git"
      
 do_compile () {
 #	${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/skeleton_test.c -o ${WORKDIR}/skeleton-test
+	${CXX} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/git/projRb/sources/*.cpp -Llibs -lpthread    -lrt -o ${WORKDIR}/robot
 }
 
 do_install () {
