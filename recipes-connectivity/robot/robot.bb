@@ -10,12 +10,13 @@ SRC_URI = "git://github.com/NicoDAO/lerobot.git;protocol=https;branch=${SRC_BRAN
 S = "${WORKDIR}/git"
      
 do_compile () {
-#	${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/skeleton_test.c -o ${WORKDIR}/skeleton-test
 	${CXX} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/git/projRb/sources/*.cpp -Llibs -lpthread    -lrt -o ${WORKDIR}/robot
 }
 
 do_install () {
-
+ mkdir -p ${D}${bindir}/robot/bin
+ cp  ${WORKDIR}/robot ${D}${bindir}/robot/bin #on copie les fichiers issus de la compilation dans /usr/bin/robot/bin/
+  
 }
 
 RDEPENDS_${PN} = "initscripts"
