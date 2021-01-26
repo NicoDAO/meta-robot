@@ -11,11 +11,13 @@ S = "${WORKDIR}/git"
      
 do_compile () {
 	${CXX} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/git/projRb/sources/*.cpp -Llibs -lpthread    -lrt -o ${WORKDIR}/robot
+	${CXX} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/git/projRb/telecomande/*.cpp -Llibs -lpthread  -lrt -o ${WORKDIR}/telecommande
 }
 
 do_install () {
  mkdir -p ${D}${bindir}/robot/bin
  cp  ${WORKDIR}/robot ${D}${bindir}/robot/bin #on copie les fichiers issus de la compilation dans /usr/bin/robot/bin/
+ cp  ${WORKDIR}/telecommande ${D}${bindir}/robot/bin #on copie les fichiers issus de la compilation dans /usr/bin/robot/bin/
   
 }
 
